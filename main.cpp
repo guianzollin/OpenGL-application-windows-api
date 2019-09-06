@@ -42,12 +42,12 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
   int pf;
   pf = ChoosePixelFormat(hDC, &pfd);
   if (pf == 0) {
-	 MessageBox(NULL, "ChoosePixelFormat() failed: Cannot find a suitable pixel format.", "Error", MB_OK); 
-	 return 0;
+    MessageBox(NULL, "ChoosePixelFormat() failed: Cannot find a suitable pixel format.", "Error", MB_OK); 
+    return 0;
   } 
   if (SetPixelFormat(hDC, pf, &pfd) == FALSE) {
-	 MessageBox(NULL, "SetPixelFormat() failed: Cannot set format specified.", "Error", MB_OK);
-	 return 0;
+    MessageBox(NULL, "SetPixelFormat() failed: Cannot set format specified.", "Error", MB_OK);
+    return 0;
   }
   DescribePixelFormat(hDC, pf, sizeof(PIXELFORMATDESCRIPTOR), &pfd);
   
@@ -81,14 +81,14 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp){
       
     case WM_PAINT:
       DrawWorld();
-	    BeginPaint(hWnd, &ps);
-	    EndPaint(hWnd, &ps);
+      BeginPaint(hWnd, &ps);
+      EndPaint(hWnd, &ps);
       break;
       
     case WM_SIZE:
-    	glViewport(0, 0, LOWORD(lp), HIWORD(lp));
-    	PostMessage(hWnd, WM_PAINT, 0, 0);
-    	break;
+      glViewport(0, 0, LOWORD(lp), HIWORD(lp));
+      PostMessage(hWnd, WM_PAINT, 0, 0);
+      break;
 
     case WM_DESTROY:
       PostQuitMessage(0);
