@@ -1,2 +1,2 @@
 # OpenGL-application-windows-api
-A very simple OpenGL application in C++ language using Windows API
+A very simple OpenGL application in C++ language using Windows API with MinGW
